@@ -5,15 +5,15 @@ angular.module("NarrowItDownApp", [])
     .service("MenuSearchService", MenuSearchService)
     .controller("NarrowItDownController", NarrowItDownController)
     .constant("ApiBasePath", "https://davids-restaurant.herokuapp.com/menu_items.json")
-    .directive('foundItems', foundItemsDirective);
+    .directive('foundMenus', foundMenusDirective);
 
 
 
-function foundItemsDirective(){
+function foundMenusDirective(){
 
     var ddo = {
         restrict: "E",
-        templateUrl: 'foundItemsList.html',
+        templateUrl: 'foundMenus.html',
         scope: {
             foundItems: '<found',
             onRemove: '&'
