@@ -15,7 +15,7 @@ function foundMenusDirective(){
         restrict: "E",
         templateUrl: 'foundMenus.html',
         scope: {
-            foundItems: '<found',
+            foundItems: '<',
             onRemove: '&'
         },
         controller: FoundItemsDirectiveController,
