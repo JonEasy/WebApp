@@ -61,10 +61,10 @@ function MenuSearchService($http, ApiBasePath) {
                     items.push( response.data.menu_items[i] );
                 }
             }
+
         }).catch(function (error) {
             console.log("Error while retrieving the data.")
         });
-
         return items
     };
 
