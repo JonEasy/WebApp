@@ -1,6 +1,7 @@
-<ol>
-    <li ng-repeat="item in foundItems">
+<ul>
+    <li ng-repeat="item in dctrl.foundItems">
         {{item.name}}
-        <button ng-click="foundItems.onRemove({index: $index});">Remove Item</button>
+        <button ng-click="dctrl.onRemove({index: $index});">Remove Item</button>
     </li>
-</ol>
+</ul>
+    <div ng-if="dctrl.isempty()" class="alert alert-info">No Menus found</div>

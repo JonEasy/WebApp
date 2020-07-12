@@ -18,10 +18,25 @@ function foundMenusDirective(){
             foundItems: '<',
             onRemove: '&'
         },
-    };
+        controller: DirectiveController,
+        controllerAs: 'dctrl',
+        bindToController: true
 
+    };
     return ddo;
 }
+
+function DirectiveController (){
+
+    var dctrl = this;
+
+    dctrl.isempty = function (){
+        if (dctrl.foundItems.length === 0 && dctrl.foundItems !== 'undefined'){
+            return true;
+        }
+        return false;
+    };
+    }
 
 
 NarrowItDownController.$inject = ["MenuSearchService"];
@@ -57,7 +72,8 @@ function MenuSearchService($http, ApiBasePath) {
             url: (ApiBasePath)
         }).then(function (response){
             for ( var i = 0 ; i < response.data.menu_items.length ; i++ ) {
-                if ( response.data.menu_items[i].name.toLowerCase().indexOf(searchTerm) !== -1 ) {
+                if ( response.data.menu_items[i].name.toLowerCase().indexOf(searchTerm) !== -1 && searchTerm != "" ) {
+
                     items.push( response.data.menu_items[i] );
                 }
             }
