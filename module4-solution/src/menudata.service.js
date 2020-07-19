@@ -27,7 +27,6 @@ function MenuDataService($http,ApiMenus){
                 category: categoryShortName
             }
         })
-        console.log(response)
         return response
 
     };
