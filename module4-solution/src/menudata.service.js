@@ -19,17 +19,17 @@ function MenuDataService($http,ApiMenus){
         })
         return response
     };
-
     service.getItemsForCategory = function(categoryShortName){
         var response = $http({
             method: "GET",
-            url: (ApiMenus + "/menu_items.json"),
+            url: (ApiMenus + '/menu_items.json?category=' + categoryShortName),
             params: {
                 category: categoryShortName
             }
-
         })
+        console.log(response)
         return response
+
     };
 }
 })();

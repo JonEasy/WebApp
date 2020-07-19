@@ -1,6 +1,6 @@
 <div>
 
-    <button ng-repeat="item in $ctrl.items" class="btn btn-success" ui-sref="categories({categoryShotName:someVal})" >
+    <button ng-repeat="item in $ctrl.items" class="btn btn-success" ui-sref="items({categoryShortName:item.short_name})" >
         {{item.name}}
     </button>
 </div>
