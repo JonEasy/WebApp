@@ -28,13 +28,8 @@ function MenuDataService($http,ApiMenus){
                 category: categoryShortName
             }
 
-        }).then(function success(result) {
-            return result.data.menu_items;
         })
-        .catch(function error(response) {
-            throw new Error('Fail to fetch details!');
-        });
-    }
-
+        return response
+    };
 }
 })();
