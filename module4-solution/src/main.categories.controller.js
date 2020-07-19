@@ -1,11 +1,11 @@
 (function() {
 'use strict';
-angular.module('data')
+angular.module('MenuApp')
 .controller('MainCategoriesController', MainCategoriesController);
 
 MainCategoriesController.$inject = ['menus'];
 function MainCategoriesController(menus) {
     var mainCategories = this;
-    mainCategories.menus = menus;
+    mainCategories.menus = menus.data;
 }
 })();

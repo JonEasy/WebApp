@@ -28,7 +28,7 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
         return MenuDataService.getAllCategories();
       }]
     }
-  })
+  });
 
 }
 

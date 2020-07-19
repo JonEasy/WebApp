@@ -5,7 +5,7 @@ angular.module('data')
 .constant("ApiMenus", "https://davids-restaurant.herokuapp.com")
 
 
-MenuDataService.$inject=["$https","ApiMenus"]
+MenuDataService.$inject=["$http","ApiMenus"]
 function MenuDataService($http,ApiMenus){
 
     var service = this
@@ -16,13 +16,8 @@ function MenuDataService($http,ApiMenus){
         var response = $http({
             method: "GET",
             url: (ApiMenus + "/categories.json")
-        }).then(function success(result) {
-
         })
-        .catch(function error(response) {
-            console.log("No")
-            throw new Error('Fail to fetch details!');
-        });
+        return response
     };
 
     service.getItemsForCategory = function(categoryShortName){
