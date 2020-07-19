@@ -17,8 +17,7 @@ function MenuDataService($http,ApiMenus){
             method: "GET",
             url: (ApiMenus + "/categories.json")
         }).then(function success(result) {
-            console.log("Yes")
-            return result.data;
+
         })
         .catch(function error(response) {
             console.log("No")

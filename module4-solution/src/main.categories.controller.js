@@ -1,6 +1,6 @@
 (function() {
 'use strict';
-angular.module('data')
+angular.module('MenuApp')
 .controller('MainCategoriesController', MainCategoriesController);
 
 MainCategoriesController.$inject = ['menus'];
