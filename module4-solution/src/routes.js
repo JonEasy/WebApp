@@ -16,7 +16,7 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
   // Home page
   .state('home', {
     url: '/',
-    templateUrl: 'src/templates/home.html'
+    templateUrl: 'src/templates/main.categories.template.html'
   })
 
   .state('categories',{
@@ -24,7 +24,7 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
     templateUrl: 'src/templates/main.categories.template.html',
     controller: 'MainCategoriesController as mainCategories',
     resolve :{
-      categories: ['MenuDataService',function(MenuDataService){
+      menus: ['MenuDataService',function(MenuDataService){
         return MenuDataService.getAllCategories();
       }]
     }

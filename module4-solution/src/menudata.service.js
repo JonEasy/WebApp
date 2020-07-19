@@ -2,11 +2,11 @@
 
 angular.module('data')
 .service('MenuDataService',MenuDataService)
-.constant("ApiMenus", " https://davids-restaurant.herokuapp.com/")
+.constant("ApiMenus", "https://davids-restaurant.herokuapp.com")
 
 
 MenuDataService.$inject=["$https","ApiMenus"]
-function MenuDataService($http,ApiBasePath){
+function MenuDataService($http,ApiMenus){
 
     var service = this
     //List of Menus
@@ -15,11 +15,12 @@ function MenuDataService($http,ApiBasePath){
     service.getAllCategories = function(){
         var response = $http({
             method: "GET",
-            url: (ApiCategories + "categories.json")
+            url: (ApiMenus + "/categories.json")
         }).then(function success(result) {
             console.log("Yes")
             return result.data;
-        }, function error(response) {
+        })
+        .catch(function error(response) {
             console.log("No")
             throw new Error('Fail to fetch details!');
         });
@@ -28,16 +29,18 @@ function MenuDataService($http,ApiBasePath){
     service.getItemsForCategory = function(categoryShortName){
         var response = $http({
             method: "GET",
-            url: (ApiCategories + "menu_items.json"),
+            url: (ApiMenus + "/menu_items.json"),
             params: {
                 category: categoryShortName
             }
 
         }).then(function success(result) {
-            return result.data;
-        }, function error(response) {
+            return result.data.menu_items;
+        })
+        .catch(function error(response) {
             throw new Error('Fail to fetch details!');
-        });    }
+        });
+    }
 
 }
 })();
